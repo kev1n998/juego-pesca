@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Minijuego de fútbol: pesca una posición, una nacionalidad y un equipo y encuentra al jugador correcto.">
+  <title>La Pesca del Futbolista</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">DESAFÍO FINAL</p>
+        <h1>La Pesca del Futbolista</h1>
+      </div>
+      <div class="progress-wrap" aria-label="Progreso">
+        <span id="roundLabel">PRUEBA 1 / 5</span>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+    </header>
+
+    <section class="status-row">
+      <div class="lives" aria-label="Vidas restantes">
+        <span>VIDAS</span>
+        <div id="lives" class="hearts"></div>
+      </div>
+      <div id="score" class="score">0 / 5</div>
+    </section>
+
+    <section class="pond-card" id="pondCard">
+      <div class="sky-glow"></div>
+      <div class="moon"></div>
+      <div class="cloud cloud-a"></div>
+      <div class="cloud cloud-b"></div>
+      <div class="shore"></div>
+      <div class="water-lines"></div>
+
+      <div class="angler">
+        <div class="angler-head"></div>
+        <div class="angler-body"></div>
+        <div class="angler-arm"></div>
+        <div class="rod"></div>
+        <div class="line" id="fishingLine"></div>
+        <div class="bobber" id="bobber"></div>
+      </div>
+
+      <div class="pond-copy">
+        <span class="tiny-label">PREPARA EL LANZAMIENTO</span>
+        <h2 id="pondTitle">¿Qué jugador picará?</h2>
+        <p id="pondHint">Lanza la caña para descubrir las tres pistas.</p>
+      </div>
+
+      <button id="castButton" class="cast-button" type="button">
+        <span class="cast-icon">🎣</span>
+        <span>LANZAR CAÑA</span>
+      </button>
+      <div id="splash" class="splash" aria-hidden="true"></div>
+    </section>
+
+    <section id="clues" class="clues hidden" aria-live="polite">
+      <article class="clue-card">
+        <span class="clue-label">POSICIÓN</span>
+        <div class="position-badge" id="positionBadge">MC</div>
+        <strong id="positionText">MC</strong>
+      </article>
+
+      <article class="clue-card nationality-card">
+        <span class="clue-label">NACIONALIDAD</span>
+        <div class="flag" id="flag">🇪🇸</div>
+        <strong id="nationalityText">España</strong>
+      </article>
+
+      <article class="clue-card league-card">
+        <span class="clue-label">EQUIPO</span>
+        <div class="team-logo" id="teamLogo"><span>BAR</span></div>
+        <strong id="teamText">FC Barcelona</strong>
+      </article>
+    </section>
+
+    <section id="answerPanel" class="answer-panel hidden">
+      <label for="playerInput">¿Qué futbolista cumple las tres pistas?</label>
+      <div class="input-row">
+        <input id="playerInput" type="text" autocomplete="off" spellcheck="false" placeholder="Escribe el nombre del jugador…" maxlength="80">
+        <button id="checkButton" type="button">COMPROBAR</button>
+      </div>
+      <p class="input-help">Se aceptan mayúsculas, minúsculas, tildes y varias formas habituales del nombre.</p>
+      <div id="feedback" class="feedback" role="status"></div>
+    </section>
+
+    <section id="startPanel" class="start-panel">
+      <p><strong>Cómo jugar:</strong> en cada ronda conseguirás una posición, una nacionalidad y un equipo. Encuentra un jugador que encaje con las tres.</p>
+      <button id="startButton" type="button" class="primary-button">EMPEZAR PRUEBA</button>
+    </section>
+
+    <section id="endPanel" class="end-panel hidden" aria-live="assertive">
+      <div class="end-icon" id="endIcon">🏆</div>
+      <h2 id="endTitle">¡Enhorabuena!</h2>
+      <p id="endMessage"></p>
+      <div id="finalCode" class="final-code hidden">15: 2ULE</div>
+      <button id="restartButton" type="button" class="primary-button">VOLVER A JUGAR</button>
+    </section>
+
+    <footer>Desafío creado para jugarse directamente desde GitHub Pages · Sin instalación</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
